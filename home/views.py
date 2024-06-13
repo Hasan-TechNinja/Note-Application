@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import HttpResponse
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 
@@ -13,3 +14,6 @@ def authorized(request):
 
 def userLogin(request):
     return render(request, 'userLogin.html', {})
+
+def UserLogin(request, id):
+    return render(request, 'userLogin.html', {'id':id})

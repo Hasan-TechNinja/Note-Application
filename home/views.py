@@ -8,6 +8,9 @@ def home(request):
     today = datetime.today()
     return render(request, 'home.html', {'today': today})
 
+def about(request):
+    return render(request, 'about.html')
+
 @login_required(login_url='/userLogin')
 def authorized(request):
     return render(request, 'authorized.html', {})

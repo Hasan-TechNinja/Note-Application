@@ -20,3 +20,15 @@ def userLogin(request):
 
 def UserLogin(request, id):
     return render(request, 'userLogin.html', {'id':id})
+
+def Calculator(request):
+    result = 0
+    try:
+        if request.method == "POST":
+            num1 = int(request.POST.get('first'))
+            num2 = int(request.POST.get('second'))
+            result = num1 + num2
+    except:
+        pass
+
+    return render(request, 'calculator.html', {'result': result })

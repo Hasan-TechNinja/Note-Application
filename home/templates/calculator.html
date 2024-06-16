@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Calculator{% endblock title %}
+{% block content %}
+
+    <div class="container">
+        <table>
+            <form method="POST">
+                {% csrf_token %}
+                <tr>
+                    <td>First Number: </td>
+                    <td><input type="text" name="first"></td>
+                </tr>
+                <tr >
+                    <td>Secont Number: </td>
+                    <td><input type="text" name="second"></td>
+                </tr>
+                <tr class="text-center">
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Submit"></td>
+                </tr>
+                <tr class="mt-3">
+                    <td></td>
+                    <td><input type="text" name="result" value="{{ result }}"></td>
+                </tr>
+            </form>
+        </table>
+    </div>
+
+{% endblock content %}

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
+from .forms import calculator
 
 # Create your views here.
 def home(request):
@@ -22,13 +23,25 @@ def UserLogin(request, id):
     return render(request, 'userLogin.html', {'id':id})
 
 def Calculator(request):
+    cal = calculator()
     result = 0
     try:
         if request.method == "POST":
-            num1 = int(request.POST.get('first'))
-            num2 = int(request.POST.get('second'))
-            result = num1 + num2
+            num1 = int(request.POST.get('num1'))
+            num2 = int(request.POST.get('num2'))
+            operator = request.POST.get('operator')
+            if operator == "+":
+                result = num1 + num2
+            elif operator == "-":
+                result = num1 - num2
+            elif operator == "*":
+                result = num1 * num2
+            elif operator == "/":
+                result = num1 / num2
     except:
         pass
 
-    return render(request, 'calculator.html', {'result': result })
+    return render(request, 'calculator.html', {'result': result, 'calculator': cal })
+
+def result(request):
+    return render(request, 'result.html')

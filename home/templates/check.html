@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Check Number{% endblock title %}
+{% block content %}
+<form action="" method="POST" class="ml-5">
+    {% csrf_token %}
+    {{ checkNumber }}
+    <input type="submit" value="submit"> <br> <br>
+    <input type="text" value="{{result}}" disabled>
+</form>
+{% endblock content %}

@@ -5,19 +5,10 @@
 
     <div class="container">
         <table>
-            <form method="POST">
+            <form method="POST" action="{% url "result" %}">
                 {% csrf_token %}
-                {% comment %} <tr>
-                    <td>First Number: </td>
-                    <td><input type="text" name="first"></td>
-                </tr>
-                <tr >
-                    <td>Secont Number: </td>
-                    <td><input type="text" name="second"></td>
-                </tr> {% endcomment %}
                 {{ calculator }}
-                
-                
+               
                 <tr class="text-center">
                     <td></td>
                     <td>

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
-from .forms import calculator
+from .forms import calculator, checkNumber
 
 # Create your views here.
 def home(request):
@@ -42,6 +42,21 @@ def Calculator(request):
         pass
 
     return render(request, 'calculator.html', {'result': result, 'calculator': cal })
+
+def check(request):
+    checkNum = checkNumber
+    result = ""
+    if request.method == 'POST':
+        number = int(request.POST.get('number'))
+        if number == "0":
+            result = "Number is 0"
+        elif number % 2 == "0":
+            result = "Number is Even"
+        elif number % 2 != "0":
+            result = "Number is Odd"
+        else:
+            pass
+    return render(request, 'check.html', {'checkNumber':checkNum, 'result':result})
 
 def result(request):
     return render(request, 'result.html')

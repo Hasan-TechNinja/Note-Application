@@ -10,5 +10,6 @@ urlpatterns = [
     path('userLogin/', views.userLogin, name='userLogin'),
     path('userLogin/<int:id>', views.UserLogin, name='UserLogin'),
     path('calculator/', views.Calculator, name = 'calculator'),
+    path('check/', views.check, name = 'check'),
     path('result/', views.result, name = 'result'),
 ]

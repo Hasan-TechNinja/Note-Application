@@ -62,6 +62,6 @@ def check(request):
 def result(request):
     return render(request, 'result.html')
 
-def product(request):  
-    product = Product.objects.all()
+def product(request):
+    product = Product.objects.all().order_by("-name")
     return render(request, 'product.html', {"product" : product})

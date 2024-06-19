@@ -3,6 +3,7 @@ from django.shortcuts import HttpResponse
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from .forms import calculator, checkNumber
+from . models import Product
 
 # Create your views here.
 def home(request):
@@ -60,3 +61,7 @@ def check(request):
 
 def result(request):
     return render(request, 'result.html')
+
+def product(request):  
+    product = Product.objects.all()
+    return render(request, 'product.html', {"product" : product})

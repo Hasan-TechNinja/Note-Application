@@ -12,4 +12,5 @@ urlpatterns = [
     path('calculator/', views.Calculator, name = 'calculator'),
     path('check/', views.check, name = 'check'),
     path('result/', views.result, name = 'result'),
+    path('product/', views.product, name = 'product'),
 ]
